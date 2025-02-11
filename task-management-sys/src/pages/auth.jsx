@@ -7,27 +7,25 @@ import { login } from "../redux/authSlice";
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isSignup, setIsSignup] = useState(false); // Toggle Login/Signup
+  const [isSignup, setIsSignup] = useState(false); 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const storedUser = JSON.parse(localStorage.getItem("user")); // Check if user is logged in
+  const storedUser = JSON.parse(localStorage.getItem("user")); 
   const isAuthenticated = storedUser !== null;
 
-  // Handle Login and Signup
   const handleAuth = () => {
     const user = { email, password };
     if (isSignup) {
-      localStorage.setItem("user", JSON.stringify(user)); // Save user on signup
+      localStorage.setItem("user", JSON.stringify(user));
     }
     dispatch(login(user));
     navigate("/tasks");
   };
 
-  // Handle Signout
   const handleSignout = () => {
-    localStorage.removeItem("user"); // Remove user data
-    navigate("/"); // Redirect to login page
+    localStorage.removeItem("user");
+    navigate("/");
   };
 
   return (

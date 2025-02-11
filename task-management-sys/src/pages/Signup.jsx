@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { TextField, Button, Container } from "@mui/material";
-import { login } from "../redux/authSlice";  // ✅ Ensure login action is correctly imported
+import { login } from "../redux/authSlice";  
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -13,8 +13,8 @@ const Signup = () => {
   const handleSignup = () => {
     const user = { email, password };
     localStorage.setItem("user", JSON.stringify(user));
-    dispatch(login(user));  // ✅ Dispatch login action correctly
-    navigate("/tasks");  // ✅ Redirect after signup
+    dispatch(login(user));  
+    navigate("/tasks");  
   };
 
   return (
@@ -42,4 +42,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;  // ✅ Correct export
+export default Signup;  
