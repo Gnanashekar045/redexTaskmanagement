@@ -21,7 +21,7 @@ const taskSlice = createSlice({
       state.tasks = state.tasks.filter((task) => task.id !== action.payload);
     },
     getTasks: (state, action) => {
-      state.tasks = action.payload; // This will replace the current state with new tasks
+      state.tasks = action.payload; 
     },
   },
 });
