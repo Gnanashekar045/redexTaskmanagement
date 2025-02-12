@@ -7,11 +7,11 @@ import { login } from "../redux/authSlice";
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isSignup, setIsSignup] = useState(false); 
+  const [isSignup, setIsSignup] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const storedUser = JSON.parse(localStorage.getItem("user")); 
+  const storedUser = JSON.parse(localStorage.getItem("user"));
   const isAuthenticated = storedUser !== null;
 
   const handleAuth = () => {
@@ -40,31 +40,15 @@ const Auth = () => {
           </>
         ) : (
           <>
-            <Typography variant="h4" gutterBottom>
-              {isSignup ? "Signup" : "Login"}
-            </Typography>
-            <TextField
-              label="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              fullWidth
-              margin="normal"
-            />
-            <TextField
-              label="Password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              fullWidth
-              margin="normal"
-            />
-            <Button onClick={handleAuth} variant="contained" sx={{ mt: 2 }}>
-              {isSignup ? "Sign Up" : "Login"}
-            </Button>
-            <Button
-              onClick={() => setIsSignup(!isSignup)}
-              sx={{ mt: 2, display: "block" }}
-            >
+            <Typography variant="h4" gutterBottom>{isSignup ? "Signup" : "Login"}</Typography>
+            
+            <TextField label="Email" value={email} onChange={(e) => setEmail(e.target.value)} fullWidth margin="normal"/>
+
+            <TextField label="Password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} fullWidth margin="normal"/>
+
+            <Button onClick={handleAuth} variant="contained" sx={{ mt: 2 }}>{isSignup ? "Sign Up" : "Login"}</Button>
+            <Button onClick={() => setIsSignup(!isSignup)}
+              sx={{ mt: 2, display: "block" }}>
               {isSignup ? "Already have an account? Login" : "New user? Sign up"}
             </Button>
           </>
