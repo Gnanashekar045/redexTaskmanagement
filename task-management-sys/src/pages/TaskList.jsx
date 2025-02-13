@@ -19,6 +19,7 @@ const TaskList = () => {
 
   return (
     <Container>
+      
       <Typography variant="h4" sx={{ mb: 2 }}>Your Tasks</Typography>
       
       <Button variant="contained" onClick={() => { 
@@ -27,6 +28,7 @@ const TaskList = () => {
       }}>
         Add Task
       </Button>
+      <hr/>
 
       {isFormOpen && <TaskForm existingTask={taskToEdit} onClose={() => setIsFormOpen(false)} />}
 
@@ -37,6 +39,7 @@ const TaskList = () => {
       ) : (
         <Typography sx={{ mt: 2 }}>No tasks found.</Typography>
       )}
+      <hr/>
     </Container>
   );
 };

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { TextField, Button, Container, Typography, Paper } from "@mui/material";
 import { login } from "../redux/authSlice";
+import TaskList from "./TaskList";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -18,9 +19,10 @@ const Auth = () => {
     const user = { email, password };
     if (isSignup) {
       localStorage.setItem("user", JSON.stringify(user));
+      
     }
     dispatch(login(user));
-    navigate("/tasks");
+   navigate("/tasks");
   };
 
   const handleSignout = () => {
@@ -37,6 +39,9 @@ const Auth = () => {
             <Button onClick={handleSignout} color="error" sx={{ mt: 2 }}>
               Sign Out
             </Button>
+            <hr/>
+      <hr/>
+            <TaskList/>
           </>
         ) : (
           <>
@@ -51,6 +56,8 @@ const Auth = () => {
               sx={{ mt: 2, display: "block" }}>
               {isSignup ? "Already have an account? Login" : "New user? Sign up"}
             </Button>
+            
+
           </>
         )}
       </Paper>

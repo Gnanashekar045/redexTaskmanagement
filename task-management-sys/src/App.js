@@ -7,7 +7,7 @@ const App = () => {
       <Auth/>
     </div>
     <div>
-      <TaskList />
+     
     </div>
   </>
 }
