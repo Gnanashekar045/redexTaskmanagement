@@ -6,8 +6,7 @@ import TaskForm from "../components/TaskForm";
 
 const TaskList = () => {
   const dispatch = useDispatch();
-  const tasks = useSelector((state) => state.tasks.tasks) || [];
-  console.log(tasks)
+  const tasks = useSelector((state) => state.tasks.tasks) || [];  
 
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState(null);
